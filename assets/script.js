@@ -24,12 +24,13 @@ $(document).ready(function () {
 
 
     // get current number of hours
-    var currentHour = moment()
+    var currentHour = moment().format("HH")
     console.log(currentHour)
 
     //Each timeblock is color coded to indicate whether it is in the past, present, or future
     $(".time-block").each(function(){
         var hour = $(this).find(".hour").text()
+        console.log(hour)
         if (hour < currentHour) {
             $(this).addClass('past');
           } else if (hour === currentHour) {
@@ -42,7 +43,3 @@ $(document).ready(function () {
           }
     })
 });
-
-
-// Not sure if i need this after momemnt() on line 27
-// .format('HHmm')
