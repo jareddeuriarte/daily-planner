@@ -1,17 +1,5 @@
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar ✅
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
-
-
-
-// WHEN I view the timeblocks for that day
-// THEN 
-
-$()
-
-
-
 
 $(document).ready(function () {
 
@@ -19,25 +7,29 @@ $(document).ready(function () {
     $('.saveBtn').on('click', function () {
         // Grabbing the values from text area and hour
         var comment = $(this).siblings(".description").val()
-        // console.log(comment)
         var hour = $(this).siblings(".hour").text()
-        // console.log(hour)
         localStorage.setItem(hour, comment);
     })
 
-    //Retriving from localstorage and the setting value for 9:00 am in the text area
-    console.log(localStorage.getItem("9:00 AM"));
-    $("#comment9am").val(localStorage.getItem("9:00 AM"));
-    $("#comment10am").val(localStorage.getItem("10:00 AM"));
+    //Retriving from localstorage and the printing the textarea value in textarea. 
+    $("#comment9").val(localStorage.getItem("9:00"));
+    $("#comment10").val(localStorage.getItem("10:00"));
+    $("#comment11").val(localStorage.getItem("11:00"));
+    $("#comment12").val(localStorage.getItem("12:00"));
+    $("#comment13").val(localStorage.getItem("13:00"));
+    $("#comment14").val(localStorage.getItem("14:00"));
+    $("#comment15").val(localStorage.getItem("15:00"));
+    $("#comment16").val(localStorage.getItem("16:00"));
+    $("#comment17").val(localStorage.getItem("17:00"));
+
 
     // get current number of hours
-    var currentHour = moment().format("h:mm A");
+    var currentHour = moment()
     console.log(currentHour)
 
     //Each timeblock is color coded to indicate whether it is in the past, present, or future
     $(".time-block").each(function(){
         var hour = $(this).find(".hour").text()
-        console.log(hour)
         if (hour < currentHour) {
             $(this).addClass('past');
           } else if (hour === currentHour) {
@@ -48,50 +40,9 @@ $(document).ready(function () {
             $(this).removeClass('present');
             $(this).addClass('future');
           }
-            
-
     })
-
-    
 });
 
 
-
-
-
-
-
-// // Store
-// // Retrieve
-// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-
-// // $( "button" ).on( "click", textarea.val(), function( event ) {
-// //     event.preventDefault();
-// //     console.log( $( this ).text("did this work?") );
-// // });
-
-// // $(document).ready(function(){
-// //     $("button").click(function(){
-// //         var comment = $.trim($("#comment9am").val());
-// //         if(comment != ""){
-// //             // Show alert dialog if value is not blank
-// //             alert(comment);
-// //         }
-// //     });
-    
-// // });
-    
-
-
-
-
-
-
-
-
-
-
-
-
-// WHEN I refresh the page
-// THEN the saved events persist
+// Not sure if i need this after momemnt() on line 27
+// .format('HHmm')
